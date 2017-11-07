@@ -1,7 +1,7 @@
-package minor.infosupport.player.configurations.events;
+package minor.infosupport.arena.configurations.events;
 
-import minor.infosupport.player.events.receivers.BallMovedReceiver;
-import org.springframework.amqp.core.Queue;
+import minor.infosupport.arena.events.receivers.BallMovedReceiver;
+import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
