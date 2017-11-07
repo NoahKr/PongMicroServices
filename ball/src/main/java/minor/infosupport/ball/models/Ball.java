@@ -1,12 +1,13 @@
 package minor.infosupport.ball.models;
 
-public class Ball {
+import java.io.Serializable;
+
+public class Ball implements Serializable {
 
     private int width = 5;
     private int height = 5;
 
-    private int positionX = 100;
-    private int positionY = 100;
+    private Position position;
 
     private int speed = 5;
 
@@ -16,16 +17,17 @@ public class Ball {
     public Ball(int width, int height, int positionX, int positionY) {
         this.width = width;
         this.height = height;
-        this.positionX = positionX;
-        this.positionY = positionY;
+        this.position = new Position(positionX, positionY);
     }
 
     public Ball(int width, int height) {
         this.width = width;
         this.height = height;
+        this.position = new Position();
     }
 
     public Ball() {
+        this.position = new Position();
     }
 
     public int getWidth() {
@@ -42,22 +44,6 @@ public class Ball {
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-    public int getPositionX() {
-        return positionX;
-    }
-
-    public void setPositionX(int positionX) {
-        this.positionX = positionX;
-    }
-
-    public int getPositionY() {
-        return positionY;
-    }
-
-    public void setPositionY(int positionY) {
-        this.positionY = positionY;
     }
 
     public int getSpeed() {
@@ -82,5 +68,13 @@ public class Ball {
 
     public void setDirectionY(int directionY) {
         this.directionY = directionY;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }
