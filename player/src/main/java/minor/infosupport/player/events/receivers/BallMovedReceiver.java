@@ -10,7 +10,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@RabbitListener(queues = "#ballMovedQueue.name")
+@RabbitListener(queues = "#{ballMovedQueue.name}")
 public class BallMovedReceiver {
 
 	private final Logger logger = LoggerFactory.getLogger(BallMovedReceiver.class);
