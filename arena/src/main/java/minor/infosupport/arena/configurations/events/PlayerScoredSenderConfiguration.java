@@ -1,7 +1,6 @@
-package minor.infosupport.player.configurations.events;
+package minor.infosupport.arena.configurations.events;
 
-import minor.infosupport.player.events.senders.BallDeflectedSender;
-import minor.infosupport.player.events.senders.PlayerScoredSender;
+import minor.infosupport.arena.events.senders.PlayerScoredSender;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

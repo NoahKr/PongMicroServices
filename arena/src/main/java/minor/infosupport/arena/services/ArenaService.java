@@ -1,8 +1,8 @@
-package minor.infosupport.player.services;
+package minor.infosupport.arena.services;
 
-import minor.infosupport.player.entities.Arena;
-import minor.infosupport.player.entities.ArenaSide;
-import minor.infosupport.player.entities.Position;
+import minor.infosupport.arena.entities.Arena;
+import minor.infosupport.arena.entities.ArenaSide;
+import minor.infosupport.arena.entities.Position;
 import org.springframework.stereotype.Service;
 
 @Service

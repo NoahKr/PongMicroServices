@@ -1,4 +1,4 @@
-package minor.infosupport.player.entities;
+package minor.infosupport.arena.entities;
 
 public class Arena {
 

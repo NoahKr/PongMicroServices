@@ -1,11 +1,11 @@
-package minor.infosupport.player.events.receivers;
+package minor.infosupport.arena.events.receivers;
 
 import com.google.gson.Gson;
-import minor.infosupport.player.entities.ArenaSide;
-import minor.infosupport.player.entities.Position;
-import minor.infosupport.player.events.senders.BallDeflectedSender;
-import minor.infosupport.player.events.senders.PlayerScoredSender;
-import minor.infosupport.player.services.ArenaService;
+import minor.infosupport.arena.entities.ArenaSide;
+import minor.infosupport.arena.entities.Position;
+import minor.infosupport.arena.events.senders.BallDeflectedSender;
+import minor.infosupport.arena.events.senders.PlayerScoredSender;
+import minor.infosupport.arena.services.ArenaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
