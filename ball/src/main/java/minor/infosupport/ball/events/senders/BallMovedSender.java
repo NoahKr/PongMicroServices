@@ -1,13 +1,18 @@
 package minor.infosupport.ball.events.senders;
 
 import com.google.gson.Gson;
+import minor.infosupport.ball.events.receivers.BallDeflectedReceiver;
 import minor.infosupport.ball.models.Position;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 public class BallMovedSender {
+
+    private final Logger logger = LoggerFactory.getLogger(BallDeflectedReceiver.class);
 
     @Autowired
     private RabbitTemplate template;
@@ -25,7 +30,7 @@ public class BallMovedSender {
         String json = gson.toJson(position);
 
         template.convertAndSend(queue.getName(), json);
-        System.out.println("Sent " + queue.getName() + ":" + json);
+        logger.debug("Sent " + queue.getName() + ":" + json);
     }
 
 }
