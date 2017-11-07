@@ -1,10 +1,5 @@
 package minor.infosupport.player.entities;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Arena {
 
 	private int width;
