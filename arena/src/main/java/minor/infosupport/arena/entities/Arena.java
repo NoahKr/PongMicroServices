@@ -6,7 +6,7 @@ public class Arena {
 	private int rightBound = 7;
 
 	private int topBound = 7;
-	private int bottomBound = 7;
+	private int bottomBound = -7;
 
 	public Arena() {
 	}

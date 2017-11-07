@@ -32,8 +32,10 @@ public class BallMovedReceiver {
 
 		Position position = new Gson().fromJson(message, Position.class);
 
-		if (arenaService.collision(position) == ArenaSide.LEFT || arenaService.collision(position) == ArenaSide.RIGHT) {
-			playerScoredSender.send("score!");
+		if (arenaService.collision(position) == ArenaSide.LEFT) {
+			playerScoredSender.send("left");
+		} else if (arenaService.collision(position) == ArenaSide.RIGHT) {
+			playerScoredSender.send("right");
 		} else if (arenaService.collision(position) == ArenaSide.TOP || arenaService.collision(position) == ArenaSide.BOTTOM) {
 			ballDeflectedSender.send("y");
 		}
