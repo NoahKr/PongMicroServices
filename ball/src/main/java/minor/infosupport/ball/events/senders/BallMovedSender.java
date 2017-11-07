@@ -24,8 +24,8 @@ public class BallMovedSender {
         Gson gson = new Gson();
         String json = gson.toJson(position);
 
-        template.convertAndSend(ballMovedFanout.getName(), json);
-        logger.debug("Sent " + ballMovedFanout.getName() + ":" + json);
+        template.convertAndSend(ballMovedFanout.getName(), "", json);
+        logger.debug(json);
     }
 
 }
