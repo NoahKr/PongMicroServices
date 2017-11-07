@@ -45,8 +45,8 @@ public class PlayerController {
 
 	@PostMapping
 	@ResponseBody
-	public Player post(@RequestBody Player player) {
-		return playerRepository.save(player);
+	public ResponseEntity<Player> post(@RequestBody Player player) {
+		return ResponseEntity.ok(playerRepository.save(player));
 	}
 
 	@PutMapping("/{id}")

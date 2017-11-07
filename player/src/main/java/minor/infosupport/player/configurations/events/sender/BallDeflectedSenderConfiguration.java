@@ -1,4 +1,4 @@
-package minor.infosupport.player.configurations.events;
+package minor.infosupport.player.configurations.events.sender;
 
 import minor.infosupport.player.events.senders.BallDeflectedSender;
 import org.springframework.amqp.core.Queue;
