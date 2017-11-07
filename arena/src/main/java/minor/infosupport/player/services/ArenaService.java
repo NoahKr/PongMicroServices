@@ -15,13 +15,13 @@ public class ArenaService {
 	}
 
 	public ArenaSide collision(Position position) {
-		if (position.getX() == 0) {
+		if (position.getX() == arena.getLeftBound()) {
 			return ArenaSide.LEFT;
-		} else if (position.getX() == arena.getWidth()) {
+		} else if (position.getX() == arena.getRightBound()) {
 			return ArenaSide.RIGHT;
-		} else if (position.getY() == 0) {
+		} else if (position.getY() == arena.getTopBound()) {
 			return ArenaSide.TOP;
-		} else if (position.getY() == arena.getHeight()) {
+		} else if (position.getY() == arena.getBottomBound()) {
 			return ArenaSide.BOTTOM;
 		}
 

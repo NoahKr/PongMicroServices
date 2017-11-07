@@ -2,30 +2,51 @@ package minor.infosupport.player.entities;
 
 public class Arena {
 
-	private int width;
-	private int height;
+	private int leftBound = -7;
+	private int rightBound = 7;
+
+	private int topBound = 7;
+	private int bottomBound = 7;
 
 	public Arena() {
 	}
 
-	public Arena(int width, int height) {
-		this.width = width;
-		this.height = height;
+	public Arena(int leftBound, int rightBound, int topBound, int bottomBound) {
+		this.leftBound = leftBound;
+		this.rightBound = rightBound;
+		this.topBound = topBound;
+		this.bottomBound = bottomBound;
 	}
 
-	public int getWidth() {
-		return width;
+	public int getLeftBound() {
+		return leftBound;
 	}
 
-	public void setWidth(int width) {
-		this.width = width;
+	public void setLeftBound(int leftBound) {
+		this.leftBound = leftBound;
 	}
 
-	public int getHeight() {
-		return height;
+	public int getRightBound() {
+		return rightBound;
 	}
 
-	public void setHeight(int height) {
-		this.height = height;
+	public void setRightBound(int rightBound) {
+		this.rightBound = rightBound;
+	}
+
+	public int getTopBound() {
+		return topBound;
+	}
+
+	public void setTopBound(int topBound) {
+		this.topBound = topBound;
+	}
+
+	public int getBottomBound() {
+		return bottomBound;
+	}
+
+	public void setBottomBound(int bottomBound) {
+		this.bottomBound = bottomBound;
 	}
 }
