@@ -1,8 +1,8 @@
 package minor.infosupport.ball.models;
 
 public class Position {
-    private int x = 100;
-    private int y = 100;
+    private int x = 0;
+    private int y = 0;
 
     public Position(int x, int y) {
         this.x = x;
@@ -10,8 +10,6 @@ public class Position {
     }
 
     public Position() {
-        this.x = 100;
-        this.y = 100;
     }
 
     public int getX() {

@@ -9,7 +9,7 @@ public class Ball implements Serializable {
 
     private Position position;
 
-    private int speed = 5;
+    private int speed = 1;
 
     private int directionX = 1;
     private int directionY = 1;
