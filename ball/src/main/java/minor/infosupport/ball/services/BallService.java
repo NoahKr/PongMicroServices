@@ -29,7 +29,7 @@ public class BallService {
         int yIncrease = ball.getDirectionY() * ball.getSpeed();
 
         ball.getPosition().setX(ball.getPosition().getX() + xIncrease);
-        ball.getPosition().setY(ball.getPosition().getY() + yIncrease);
+//        ball.getPosition().setY(ball.getPosition().getY() + yIncrease);
 
         this.ballMovedSender.send(ball.getPosition());
     }
