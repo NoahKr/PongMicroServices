@@ -6,7 +6,7 @@
 	<groupId>minor.infosupport</groupId>
 	<artifactId>pong_micro_services</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>Pong Micro Services</name>
 
