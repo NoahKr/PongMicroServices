@@ -1,12 +1,12 @@
-package minor.infosupport.ball;
+package minor.infosupport.player;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PongMicroServicesApplication {
+public class PlayerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PongMicroServicesApplication.class, args);
+		SpringApplication.run(PlayerApplication.class, args);
 	}
 }

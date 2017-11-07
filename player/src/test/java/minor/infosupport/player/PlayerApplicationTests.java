@@ -1,4 +1,4 @@
-package minor.infosupport.ball;
+package minor.infosupport.player;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PongMicroServicesApplicationTests {
+public class PlayerApplicationTests {
 
 	@Test
 	public void contextLoads() {
