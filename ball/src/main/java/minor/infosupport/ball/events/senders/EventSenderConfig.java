@@ -1,8 +1,6 @@
 package minor.infosupport.ball.events.senders;
 
-
-
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,12 +8,13 @@ import org.springframework.context.annotation.Configuration;
 public class EventSenderConfig {
 
     @Bean
-    public Queue ballMoved() {
-        return new Queue("ball.moved");
+    public FanoutExchange ballMovedFanout() {
+        return new FanoutExchange("ball.moved");
     }
 
     @Bean
     public BallMovedSender ballMovedSender() {
         return new BallMovedSender();
     }
+
 }
