@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 
 public class BallDeflectedSender {
 
@@ -18,7 +17,7 @@ public class BallDeflectedSender {
 	private Queue ballDeflected;
 
 	public void send() {
-		template.convertAndSend(ballDeflected.getName(), "true");
+		template.convertAndSend(ballDeflected.getName(), "x");
 		logger.debug("Deflected");
 	}
 
