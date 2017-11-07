@@ -18,9 +18,12 @@ public class BallService {
         this.ball = new Ball();
     }
 
-    public void changeBallDirection() {
-        ball.setDirectionX(ball.getDirectionX() * -1);
-        ball.setDirectionY(ball.getDirectionY() * -1);
+    public void changeBallDirection(String message) {
+        if (message.equals("x")) {
+            ball.setDirectionX(ball.getDirectionX() * -1);
+        } else if (message.equals("y")) {
+            ball.setDirectionY(ball.getDirectionY() * -1);
+        }
     }
 
     @Scheduled(fixedDelay = 1000, initialDelay = 500)
@@ -29,7 +32,7 @@ public class BallService {
         int yIncrease = ball.getDirectionY() * ball.getSpeed();
 
         ball.getPosition().setX(ball.getPosition().getX() + xIncrease);
-//        ball.getPosition().setY(ball.getPosition().getY() + yIncrease);
+        ball.getPosition().setY(ball.getPosition().getY() + yIncrease);
 
         this.ballMovedSender.send(ball.getPosition());
     }

@@ -24,7 +24,7 @@ public class BallDeflectedReceiver {
     public void receive(String message) throws InterruptedException {
         logger.debug("Received BallDeflectedEvent: " + message);
 
-        ballService.changeBallDirection();
+        ballService.changeBallDirection(message);
     }
 
     private void doWork(String in) throws InterruptedException {
