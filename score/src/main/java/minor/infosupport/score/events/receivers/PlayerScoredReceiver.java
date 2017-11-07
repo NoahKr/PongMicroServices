@@ -19,8 +19,19 @@ public class PlayerScoredReceiver {
 
 	@RabbitHandler
 	public void receive(String message) {
-		long id = new Gson().fromJson(message, Score.class).getId();
+		long id;
+		if ("left".equals(message)) {
+			id = 1;
+		}
+		else {
+			id = 2;
+		}
+
 		Score score = scoreRepository.findOne(id);
+
+		if (score == null) {
+			score = new Score().setId(1).setPoints(0);
+		}
 
 		scoreRepository.save(score.setPoints(score.getPoints() + 1));
 
