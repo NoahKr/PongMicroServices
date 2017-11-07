@@ -18,10 +18,10 @@ public class BallService {
         this.ball = new Ball();
     }
 
-    public void changeBallDirection(String message) {
-        if (message.equals("x")) {
+    public void changeBallDirection(String axis) {
+        if (axis.equals("x")) {
             ball.setDirectionX(ball.getDirectionX() * -1);
-        } else if (message.equals("y")) {
+        } else if (axis.equals("y")) {
             ball.setDirectionY(ball.getDirectionY() * -1);
         }
     }
