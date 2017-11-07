@@ -28,19 +28,6 @@ public class BallService {
         int xIncrease = ball.getDirectionX() * ball.getSpeed();
         int yIncrease = ball.getDirectionY() * ball.getSpeed();
 
-//        // Check collision With screen edges
-//        if (xCollision(xIncrease)) {
-//            ((GameView)view).startGame();
-//        } else if (yCollision(yIncrease)) {
-//            this.directionY *= -1;
-//        }
-
-        // Check collision with deflectors
-//        if (xDeflectorCollision(xIncrease, yIncrease)) {
-//            this.directionX *= -1;
-//        }
-
-
         ball.getPosition().setX(ball.getPosition().getX() + xIncrease);
 //        ball.getPosition().setY(ball.getPosition().getY() + yIncrease);
 
