@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: bobsoppe
+    password: bobsoppe
+
+logging:
+  level:
+    ROOT: ERROR
+    minor: DEBUG
+
+tutorial:
+   client:
+    duration: 60000
