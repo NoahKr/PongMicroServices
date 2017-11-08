@@ -4,13 +4,9 @@ import minor.infosupport.ball.events.senders.BallMovedSender;
 import minor.infosupport.ball.models.Ball;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.Trigger;
-import org.springframework.scheduling.TriggerContext;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.DefaultManagedTaskScheduler;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.concurrent.ScheduledFuture;
 
 @Service

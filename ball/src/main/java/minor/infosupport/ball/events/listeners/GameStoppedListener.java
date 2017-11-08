@@ -26,8 +26,8 @@ public class GameStoppedListener {
                     type = ExchangeTypes.TOPIC,
                     durable = "true"),
             key = "game.stopped"))
-    public void receive(String message) throws InterruptedException {
+    public void receive(String message) {
+        logger.debug(message);
         ballService.stopGame();
-        logger.debug("Stopped Game!");
     }
 }

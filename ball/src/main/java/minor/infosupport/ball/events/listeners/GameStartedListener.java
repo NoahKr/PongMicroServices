@@ -24,7 +24,7 @@ public class GameStartedListener {
                     durable = "true"),
             key = "game.started"))
     public void listen(String message) {
-        ballService.startGame();
         logger.debug(message);
+        ballService.startGame();
     }
 }
