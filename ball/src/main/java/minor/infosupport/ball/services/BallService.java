@@ -3,19 +3,39 @@ package minor.infosupport.ball.services;
 import minor.infosupport.ball.events.senders.BallMovedSender;
 import minor.infosupport.ball.models.Ball;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.Trigger;
+import org.springframework.scheduling.TriggerContext;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.concurrent.DefaultManagedTaskScheduler;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.concurrent.ScheduledFuture;
 
 @Service
 public class BallService {
 
     private Ball ball;
+    private ScheduledFuture moveBallTask;
+
 
     @Autowired
     private BallMovedSender ballMovedSender;
 
     BallService() {
         this.ball = new Ball();
+    }
+
+    public void startGame() {
+        TaskScheduler taskScheduler = new DefaultManagedTaskScheduler();
+        Runnable task = this::moveBall;
+
+        this.moveBallTask = taskScheduler.scheduleAtFixedRate(task, 1000);
+    }
+
+    public void stopGame() {
+        this.moveBallTask.cancel(true);
     }
 
     public void changeBallDirection(String axis) {
@@ -26,8 +46,9 @@ public class BallService {
         }
     }
 
-    @Scheduled(fixedDelay = 1000, initialDelay = 500)
+//    @Scheduled(fixedDelay = 1000, initialDelay = 500)
     private void moveBall() {
+
         int xIncrease = ball.getDirectionX() * ball.getSpeed();
         int yIncrease = ball.getDirectionY() * ball.getSpeed();
 

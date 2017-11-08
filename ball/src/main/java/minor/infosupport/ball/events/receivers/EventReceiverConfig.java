@@ -18,7 +18,7 @@ public class EventReceiverConfig {
 	}
 
 	@Bean
-	public Queue ballDeflected() {
+	public Queue ballDeflectedQueue() {
 		return new AnonymousQueue();
 	}
 

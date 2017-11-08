@@ -7,14 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.Payload;
 
-@RabbitListener(queues = "ball.deflected")
+@RabbitListener(queues = "#{ballDeflectedQueue.name}")
 public class BallDeflectedReceiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    @Autowired
-    BallController ballController;
 
     @Autowired
     BallService ballService;
