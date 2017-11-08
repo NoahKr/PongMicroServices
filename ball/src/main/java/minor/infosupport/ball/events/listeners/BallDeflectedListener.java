@@ -1,22 +1,20 @@
-package minor.infosupport.ball.events.receivers;
+package minor.infosupport.ball.events.listeners;
 
 import minor.infosupport.ball.services.BallService;
-import minor.infosupport.ball.controllers.BallController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BallDeflectedReceiver {
+public class BallDeflectedListener {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    BallService ballService;
+    private BallService ballService;
 
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue,
@@ -25,7 +23,7 @@ public class BallDeflectedReceiver {
                     type = ExchangeTypes.TOPIC,
                     durable = "true"),
             key = "ball.deflected"))
-    public void receive(String message) throws InterruptedException {
+    public void receive(String message) {
         logger.debug(message);
         ballService.changeBallDirection(message);
     }

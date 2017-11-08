@@ -1,16 +1,18 @@
-package minor.infosupport.ball.events.receivers;
+package minor.infosupport.ball.events.listeners;
 
-import minor.infosupport.ball.controllers.BallController;
 import minor.infosupport.ball.services.BallService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.ExchangeTypes;
-import org.springframework.amqp.rabbit.annotation.*;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GameStartedReceiver {
+public class GameStoppedListener {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -23,9 +25,9 @@ public class GameStartedReceiver {
                     value = "pong",
                     type = ExchangeTypes.TOPIC,
                     durable = "true"),
-            key = "game.started"))
-    public void receive(String message) throws InterruptedException {
-        ballService.startGame();
-        logger.debug("Started Game!");
+            key = "game.stopped"))
+    public void receive(String message) {
+        logger.debug(message);
+        ballService.stopGame();
     }
 }
