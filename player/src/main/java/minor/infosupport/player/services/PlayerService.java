@@ -2,19 +2,31 @@ package minor.infosupport.player.services;
 
 import minor.infosupport.player.entities.Player;
 import minor.infosupport.player.entities.Position;
-import minor.infosupport.player.repositories.PlayerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PlayerService {
 
-	@Autowired
-	private PlayerRepository playerRepository;
+	private Player[] players;
+
+	public PlayerService() {
+		players = new Player[] {
+				new Player()
+						.setId(1)
+						.setPosition(new Position()
+								.setX(-5)
+								.setY(4))
+						.setSize(4),
+				new Player()
+						.setId(2)
+						.setPosition(new Position()
+								.setX(5)
+								.setY(0))
+						.setSize(4)
+		};
+	}
 
 	public boolean collision(Position position) {
-		Iterable<Player> players = playerRepository.findAll();
-
 		for (Player player : players) {
 			if (player.getPosition().getX() == position.getX() &&
 					player.getPosition().getY() + player.getSize() > position.getY() &&

@@ -1,8 +1,5 @@
 package minor.infosupport.player.entities;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
 public class Position {
 
 	private long x;
