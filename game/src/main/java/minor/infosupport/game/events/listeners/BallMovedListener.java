@@ -16,26 +16,24 @@ import org.springframework.stereotype.Component;
 import java.util.regex.Pattern;
 
 @Component
-public class CatchAllListener {
+public class BallMovedListener {
 
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private GameService gameService;
+    @Autowired
+    private GameService gameService;
 
-	@RabbitListener(bindings = @QueueBinding(
-			value = @Queue,
-			exchange = @Exchange(
-					value = "pong",
-					type = ExchangeTypes.TOPIC,
-					durable = "true"),
-			key = "#"))
-	public void listen(@Header(AmqpHeaders.RECEIVED_ROUTING_KEY) String eventKey, String eventMessage) {
-		logger.debug(eventKey + ": " + eventMessage);
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue,
+            exchange = @Exchange(
+                    value = "pong",
+                    type = ExchangeTypes.TOPIC,
+                    durable = "true"),
+            key = "ball.moved"))
+    public void listen(@Header(AmqpHeaders.RECEIVED_ROUTING_KEY) String eventKey, String eventMessage) {
+        logger.debug(eventKey + ": " + eventMessage);
 
-		if (!eventKey.matches("game\\.\\w+")) {
-			long timestamp = System.currentTimeMillis();
-			this.gameService.addGameEvent(timestamp, eventKey, eventMessage);
-		}
-	}
+        long timestamp = System.currentTimeMillis();
+        this.gameService.addGameEvent(timestamp, eventKey, eventMessage);
+    }
 }
