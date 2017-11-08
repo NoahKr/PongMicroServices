@@ -23,16 +23,22 @@ public class GameController {
 		return ResponseEntity.ok("started");
 	}
 
-	@PostMapping("/restart")
+	@PostMapping("/reset")
 	public ResponseEntity<String> restart() {
-		this.gameService.restartGame();
-		return ResponseEntity.ok("restarted");
+		this.gameService.resetGame();
+		return ResponseEntity.ok("resetted");
 	}
 
 	@PostMapping("/stop")
 	public ResponseEntity<String> stop() {
 		this.gameService.stopGame();
 		return ResponseEntity.ok("stopped");
+	}
+
+	@PostMapping("/replay")
+	public ResponseEntity<String> replay() {
+		this.gameService.replayGame();
+		return ResponseEntity.ok("replay");
 	}
 
 }
