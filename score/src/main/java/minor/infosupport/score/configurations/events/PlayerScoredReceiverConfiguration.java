@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class PlayerScoredReceiverConfiguration {
 
 	@Bean
-	public Queue ballMoved() {
+	public Queue playerScored() {
 		return new Queue("player.scored");
 	}
 
