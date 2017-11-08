@@ -27,6 +27,7 @@
     <modules>
         <module>arena</module>
         <module>ball</module>
+        <module>game</module>
         <module>player</module>
         <module>score</module>
     </modules>
