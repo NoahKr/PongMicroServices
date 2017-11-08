@@ -24,7 +24,7 @@ public class PlayerApplication implements CommandLineRunner {
 				.setId(1)
 				.setPosition(new Position()
 						.setX(-5)
-						.setY(0))
+						.setY(4))
 				.setSize(4));
 		playerRepository.save(new Player()
 				.setId(2)
