@@ -26,7 +26,7 @@ public class PlayerScoredListener {
 					value = "pong",
 					type = ExchangeTypes.TOPIC,
 					durable = "true"),
-			key = "#"))
+			key = "player.scored"))
 	public void listen() {
 		gameStoppedSender.send();
 	}
