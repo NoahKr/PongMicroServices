@@ -19,7 +19,6 @@ public class BallService {
     private Ball ball;
     private ScheduledFuture moveBallTask;
 
-
     @Autowired
     private BallMovedSender ballMovedSender;
 
@@ -36,6 +35,11 @@ public class BallService {
 
     public void stopGame() {
         this.moveBallTask.cancel(true);
+        this.resetBall();
+    }
+
+    private void resetBall() {
+        this.ball = new Ball();
     }
 
     public void changeBallDirection(String axis) {
@@ -46,9 +50,7 @@ public class BallService {
         }
     }
 
-//    @Scheduled(fixedDelay = 1000, initialDelay = 500)
     private void moveBall() {
-
         int xIncrease = ball.getDirectionX() * ball.getSpeed();
         int yIncrease = ball.getDirectionY() * ball.getSpeed();
 
