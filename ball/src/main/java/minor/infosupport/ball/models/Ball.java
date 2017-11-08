@@ -1,6 +1,7 @@
 package minor.infosupport.ball.models;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Ball implements Serializable {
 
@@ -11,23 +12,36 @@ public class Ball implements Serializable {
 
     private int speed = 1;
 
-    private int directionX = 1;
-    private int directionY = 1;
+    private int directionX;
+    private int directionY;
 
     public Ball(int width, int height, int positionX, int positionY) {
+        setDirectionRandom();
+
         this.width = width;
         this.height = height;
+
         this.position = new Position(positionX, positionY);
     }
 
     public Ball(int width, int height) {
+        setDirectionRandom();
+
         this.width = width;
         this.height = height;
+
         this.position = new Position();
     }
 
     public Ball() {
+        setDirectionRandom();
         this.position = new Position();
+    }
+
+    private void setDirectionRandom() {
+        Random random = new Random();
+        this.directionX = random.nextBoolean() ? 1 : -1;
+        this.directionY = random.nextBoolean() ? 1 : -1;
     }
 
     public int getWidth() {
