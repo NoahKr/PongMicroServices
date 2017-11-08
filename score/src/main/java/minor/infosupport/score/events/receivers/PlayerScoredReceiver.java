@@ -9,10 +9,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@RabbitListener(queues = "player.scored")
+@RabbitListener(queues = "#{playerScoredQueue.name}")
 public class PlayerScoredReceiver {
 
-	private final Logger logger = LoggerFactory.getLogger(PlayerScoredReceiver.class);
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private ScoreRepository scoreRepository;

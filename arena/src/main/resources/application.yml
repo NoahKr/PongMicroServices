@@ -12,7 +12,3 @@ logging:
   level:
     ROOT: ERROR
     minor: DEBUG
-
-tutorial:
-   client:
-    duration: 60000

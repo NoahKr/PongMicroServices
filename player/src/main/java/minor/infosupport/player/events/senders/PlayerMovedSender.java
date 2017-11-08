@@ -1,6 +1,7 @@
 package minor.infosupport.player.events.senders;
 
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,10 +11,10 @@ public class PlayerMovedSender {
 	private RabbitTemplate template;
 
 	@Autowired
-	private Queue playerMoved;
+	private TopicExchange exchange;
 
 	public void send() {
-		template.convertAndSend(playerMoved.getName(), "TEST");
+		template.convertAndSend(exchange.getName(), "player.moved", "TEST");
 	}
 
 }

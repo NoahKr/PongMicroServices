@@ -1,4 +1,4 @@
-package minor.infosupport.player.configurations.events.reciever;
+package minor.infosupport.player.configurations.events.receiver;
 
 import minor.infosupport.player.events.receivers.BallMovedReceiver;
 import org.springframework.amqp.core.*;
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class BallMovedReceiverConfiguration {
 
 	@Bean
-	public FanoutExchange ballMovedFanout() {
-		return new FanoutExchange("ball.moved");
+	public TopicExchange exchange() {
+		return new TopicExchange("pong");
 	}
 
 	@Bean
@@ -18,9 +18,10 @@ public class BallMovedReceiverConfiguration {
 		return new AnonymousQueue();
 	}
 
-	@Bean
-	public Binding ballMovedBinding(FanoutExchange ballMovedFanout, Queue ballMovedQueue) {
-		return BindingBuilder.bind(ballMovedQueue).to(ballMovedFanout);
+	@Bean public Binding ballMovedBinding(TopicExchange topic,
+										  Queue ballMovedQueue) {
+		return BindingBuilder.bind(ballMovedQueue)
+				.to(topic).with("ball.moved");
 	}
 
 	@Bean

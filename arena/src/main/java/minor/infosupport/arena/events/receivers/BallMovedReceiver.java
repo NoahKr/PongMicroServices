@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RabbitListener(queues = "#{ballMovedQueue.name}")
 public class BallMovedReceiver {
 
-	private final Logger logger = LoggerFactory.getLogger(BallMovedReceiver.class);
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private ArenaService arenaService;
@@ -28,7 +28,7 @@ public class BallMovedReceiver {
 
 	@RabbitHandler
 	public void receive(String message) {
-		logger.debug("Received ball.moved:" + message);
+		logger.debug(message);
 
 		Position position = new Gson().fromJson(message, Position.class);
 

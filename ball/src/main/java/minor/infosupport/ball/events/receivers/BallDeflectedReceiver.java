@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RabbitListener(queues = "ball.deflected")
 public class BallDeflectedReceiver {
 
-    private final Logger logger = LoggerFactory.getLogger(BallDeflectedReceiver.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     BallController ballController;
@@ -22,16 +22,8 @@ public class BallDeflectedReceiver {
     //This method should be called when a message arrives on the queue
     @RabbitHandler
     public void receive(String message) throws InterruptedException {
-        logger.debug("Received BallDeflectedEvent: " + message);
+        logger.debug(message);
 
         ballService.changeBallDirection(message);
-    }
-
-    private void doWork(String in) throws InterruptedException {
-
-        for (int i = 0; i < in.length(); i++) {
-            char c = in.charAt(i); // Work hard for every character in the payload
-            Thread.sleep(1000); // Sleep a second for every character send representing the hardwork
-        }
     }
 }

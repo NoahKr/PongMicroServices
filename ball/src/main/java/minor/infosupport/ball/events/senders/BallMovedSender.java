@@ -5,26 +5,26 @@ import minor.infosupport.ball.events.receivers.BallDeflectedReceiver;
 import minor.infosupport.ball.models.Position;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BallMovedSender {
 
-    private final Logger logger = LoggerFactory.getLogger(BallDeflectedReceiver.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private RabbitTemplate template;
 
     @Autowired
-	private FanoutExchange ballMovedFanout;
+	private TopicExchange exchange;
 
     public void send(Position position) {
         // Serialization
         Gson gson = new Gson();
         String json = gson.toJson(position);
 
-        template.convertAndSend(ballMovedFanout.getName(), "", json);
+        template.convertAndSend(exchange.getName(), "ball.moved", json);
         logger.debug(json);
     }
 
