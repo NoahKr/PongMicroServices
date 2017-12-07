@@ -27,7 +27,8 @@ public class PlayerScoredListener {
 					type = ExchangeTypes.TOPIC,
 					durable = "true"),
 			key = "player.scored"))
-	public void listen() {
+	public void listen(String message) {
+		logger.debug(message);
 		gameStoppedSender.send();
 	}
 

@@ -13,12 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
-import java.util.regex.Pattern;
-
 @Component
 public class BallMovedListener {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(BallMovedListener.class);
 
     @Autowired
     private GameService gameService;
@@ -30,10 +28,8 @@ public class BallMovedListener {
                     type = ExchangeTypes.TOPIC,
                     durable = "true"),
             key = "ball.moved"))
-    public void listen(@Header(AmqpHeaders.RECEIVED_ROUTING_KEY) String eventKey, String eventMessage) {
-        logger.debug(eventKey + ": " + eventMessage);
-
-        long timestamp = System.currentTimeMillis();
-        this.gameService.addGameEvent(timestamp, eventKey, eventMessage);
+    public void listen(@Header(AmqpHeaders.RECEIVED_ROUTING_KEY) String key, String message) {
+        logger.debug(key + ": " + message);
+        this.gameService.addGameEvent(System.currentTimeMillis(), key, message);
     }
 }
