@@ -32,6 +32,8 @@ public class GameStartedListener implements ApplicationListener<GameStartedEvent
 
     @Override
     public void onApplicationEvent(GameStartedEvent event) {
+        System.out.println("Godverdomme wtf");
+        System.out.println(event);
         logger.debug(event.getMessage());
 //        ballService.startGame();
     }

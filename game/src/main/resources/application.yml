@@ -2,6 +2,13 @@ server:
   port: 8084
 
 spring:
+  application:
+    index: ${random.uuid}
+  cloud:
+    bus:
+      trace:
+        enabled: true
+
   rabbitmq:
     host: 192.168.178.186
     port: 5672
