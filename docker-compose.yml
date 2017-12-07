@@ -1,0 +1,10 @@
+---
+version: '2'
+services:
+
+  jeruno-rabbitmq:
+    container_name: jeruno-rabbitmq
+    image: rabbitmq:3-management
+    ports:
+     - "8925:5672"
+     - "8926:15672"

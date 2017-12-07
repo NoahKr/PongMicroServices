@@ -40,7 +40,5 @@ hs_err_pid*
 
 ### Docker template
 
-docker-compose.yml
-
 .idea
 *.iml
