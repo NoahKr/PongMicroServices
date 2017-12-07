@@ -2,8 +2,8 @@
 version: '2'
 services:
 
-  jeruno-rabbitmq:
-    container_name: jeruno-rabbitmq
+  bojino-rabbitmq:
+    container_name: bojino-rabbitmq
     image: rabbitmq:3-management
     ports:
      - "8925:5672"
